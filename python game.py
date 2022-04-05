@@ -39,7 +39,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
-        elif ( event.type == pygame.MOUSEBUTTONUP ):
+        elif ( event.type == pygame.MOUSEBUTTONDOWN ):
             mouse_position = pygame.mouse.get_pos()             # Location of the mouse click
             if ( Rect.collidepoint( mouse_position ) ):   # Was that click inside our object
                 print( "hit" )
