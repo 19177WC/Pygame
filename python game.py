@@ -53,5 +53,3 @@ while run:
         BlueColour = random.randint(0, 255)
         colour = (RedColour, GreenColour, BlueColour)
     redraw_GameWindow()
-
-    #Test
