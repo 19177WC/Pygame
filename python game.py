@@ -43,6 +43,8 @@ while run:
             mouse_position = pygame.mouse.get_pos()             # Location of the mouse click
             if ( Rect.collidepoint( mouse_position ) ):   # Was that click inside our object
                 print( "hit" )
+                Score = Score + 1
+                print(Score)
                 y = 0
                 xRange = random.randint(50, 750)
                 yMovement = random.randint(5, 15)
@@ -52,6 +54,7 @@ while run:
                 colour = (RedColour, GreenColour, BlueColour)
 
     if y > 500:
+        print("GAME OVER MANNNN, GAME OVER!!!!")
         y = 0
         xRange = random.randint(50, 750)
         yMovement = random.randint(5, 15)
