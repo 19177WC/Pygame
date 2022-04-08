@@ -1,11 +1,12 @@
 import pygame
 import random
+import pygame.freetype
 from random import randint
 from pygame import time
 pygame.init()
+#-----------------Variables--------------------#
 window = pygame.display.set_mode((800, 480))
 pygame.display.set_caption("Game Window")
-x = 500
 y = 0
 width = 100
 height = 100
@@ -17,17 +18,18 @@ BlueColour = random.randint(0, 255)
 colour = (RedColour, GreenColour , BlueColour)
 bg = pygame.image.load('bg.jpg')
 clock = pygame.time.Clock()
-Circ = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
+Circ = pygame.draw.circle(window, colour, (xRange, y), 25, 0)
 Score = 0
-
-
+scoreText = pygame.freetype.Font("yankclipper2.ttf", 50)
+startText = pygame.freetype.Font("yankclipper2.ttf", 100)
 pygame.display.flip()
 #---------------------------- Methods ----------------------------
 def redraw_GameWindow():
     global Circ
     window.blit(bg, (0,0)) # This will draw our background image at (0,0) .blit is short for block
     # transfer and allows us to add images to a surface, in this case the main window.
-    Circ = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
+    Circ = pygame.draw.circle(window, colour, (xRange, y), 25, 0)
+    scoreText.render_to(window, (10,10), "Score : {}" .format(Score), (0, 0, 0))
     pygame.display.update()
 #---------------------------- Main Routine ----------------------------
 run=True
