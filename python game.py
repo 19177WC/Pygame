@@ -17,17 +17,17 @@ BlueColour = random.randint(0, 255)
 colour = (RedColour, GreenColour , BlueColour)
 bg = pygame.image.load('bg.jpg')
 clock = pygame.time.Clock()
-Rect = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
+Circ = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
 Score = 0
 
 
 pygame.display.flip()
 #---------------------------- Methods ----------------------------
 def redraw_GameWindow():
-    global Rect
+    global Circ
     window.blit(bg, (0,0)) # This will draw our background image at (0,0) .blit is short for block
     # transfer and allows us to add images to a surface, in this case the main window.
-    Rect = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
+    Circ = pygame.draw.rect(window, colour, (xRange, y, 50, 50))
     pygame.display.update()
 #---------------------------- Main Routine ----------------------------
 run=True
@@ -41,25 +41,25 @@ while run:
 
         elif ( event.type == pygame.MOUSEBUTTONDOWN ):
             mouse_position = pygame.mouse.get_pos()             # Location of the mouse click
-            if ( Rect.collidepoint( mouse_position ) ):   # Was that click inside our object
-                print( "hit" )
+            if ( Circ.collidepoint( mouse_position ) ):   # Was that click inside our object
                 Score = Score + 1
-                print(Score)
                 y = 0
                 xRange = random.randint(50, 750)
-                yMovement = random.randint(5, 15)
+                yMovement = random.randint(10, 15)
                 RedColour = random.randint(0, 255)
                 GreenColour = random.randint(0, 255)
                 BlueColour = random.randint(0, 255)
                 colour = (RedColour, GreenColour, BlueColour)
 
     if y > 500:
+        print("Your Score Is ", Score)
         print("GAME OVER MANNNN, GAME OVER!!!!")
         y = 0
         xRange = random.randint(50, 750)
-        yMovement = random.randint(5, 15)
+        yMovement = random.randint(10, 15)
         RedColour = random.randint(0, 255)
         GreenColour = random.randint(0, 255)
         BlueColour = random.randint(0, 255)
         colour = (RedColour, GreenColour, BlueColour)
+        break
     redraw_GameWindow()
