@@ -22,6 +22,7 @@ Circ = pygame.draw.circle(window, colour, (xRange, y), 25, 0)
 Score = 0
 scoreText = pygame.freetype.Font("yankclipper2.ttf", 50)
 startText = pygame.freetype.Font("yankclipper2.ttf", 100)
+endText = pygame.freetype.Font("yankclipper2.ttf", 100)
 pygame.display.flip()
 #---------------------------- Methods ----------------------------
 def redraw_GameWindow():
