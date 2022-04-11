@@ -5,18 +5,18 @@ from random import randint
 from pygame import time
 pygame.init()
 #-----------------Variables--------------------#
-window = pygame.display.set_mode((800, 480))
+window = pygame.display.set_mode((800, 480))                    # Window Size
 pygame.display.set_caption("Game Window")
-y = 0
-width = 100
-height = 100
-xRange = random.randint(50, 750)
-yMovement = random.randint(5, 15)
+y = 0                                                           # Ball Starting Position
+xRange = random.randint(50, 750)                                # Random start on X axis
+yMovement = random.randint(5, 15)                               # Random Downwards movement
+#----------Randomises Colour----------#
 RedColour = random.randint(0, 255)
 GreenColour = random.randint(0, 255)
 BlueColour = random.randint(0, 255)
-colour = (RedColour, GreenColour , BlueColour)
-bg = pygame.image.load('bg.jpg')
+colour = (RedColour, GreenColour , BlueColour)                  # Combines the three random values for R,G,B to make Every possible colour
+
+bg = pygame.image.load('bg.jpg')                                # Background
 clock = pygame.time.Clock()
 Score = 0
 End  = False
@@ -26,28 +26,28 @@ scoreText = pygame.freetype.Font("yankclipper2.ttf", 50)        # Text that disp
 startText = pygame.freetype.Font("yankclipper2.ttf", 100)       # Start Text
 endText = pygame.freetype.Font("yankclipper2.ttf", 100)         # End Text
 pygame.display.flip()
-#---------------------------- Methods ----------------------------
+#---------------------------- Methods ----------------------------#
 def redraw_GameWindow():
     global Circ
     global y
     global yMovement
-    window.blit(bg, (0, 0))                                       # This will draw our background image at (0,0) .blit is short for block
+    window.blit(bg, (0, 0))                                      # Draws Background
 
     Circ = pygame.draw.circle(window, colour, (xRange, y), 25, 0)
 
-    if End == False and Start == False:
+    if End == False and Start == False:                          # Makes so score text doesnt display at start or end
         scoreText.render_to(window, (10,10), "Score : {}" .format(Score), (0, 0, 0))
 
-    if End == True:
+    if End == True:                                              # Shows Score and Asks whether to play again after losing the game
         endText.render_to(window, (100, 150), "Your Score is {}".format(Score), (0, 0, 0))
         endText.render_to(window, (10, 250), "Press Space To Play Again".format(Score), (0, 0, 0))
-        y = -25
-        yMovement = 0
+        y = -25                                                  # makes it so the ball isnt visible while end screen is going
+        yMovement = 0                                            # sets movement to zero
 
     if Start == True:
         startText.render_to(window, (150, 150), "Press Space To Play", (0, 0, 0))
-        y = -25
-        yMovement = 0
+        y = -25                                                  # makes it so the ball isnt visible while end screen is going
+        yMovement = 0                                            # sets movement to zero
     pygame.display.update()
 #---------------------------- Main Routine ----------------------------
 run = True
@@ -72,7 +72,7 @@ while run:
                 BlueColour = random.randint(0, 255)
                 colour = (RedColour, GreenColour, BlueColour)
 
-        if keys[pygame.K_SPACE]:
+        if keys[pygame.K_SPACE]:                                # if space bar is pressed during start or end screen it will start playing a new game
             if End == True or Start == True:
 
                 End = False
@@ -80,7 +80,7 @@ while run:
                 yMovement = random.randint(5, 15)
                 Score = 0
 
-    if y > 500:
+    if y > 500:                                                 # Goes to End Screen and prepares for next game
         y = 0
         xRange = random.randint(50, 750)
         yMovement = random.randint(10, 15)
