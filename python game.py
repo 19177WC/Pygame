@@ -9,7 +9,7 @@ window = pygame.display.set_mode((800, 480))                    # Window Size
 pygame.display.set_caption("Game Window")
 y = 0                                                           # Ball Starting Position
 xRange = random.randint(50, 750)                                # Random start on X axis
-yMovement = random.randint(5, 15)                               # Random Downwards movement
+yMovement = random.randint(5, 20)                               # Random Downwards movement
 #----------Randomises Colour----------#
 RedColour = random.randint(0, 255)
 GreenColour = random.randint(0, 255)
@@ -46,8 +46,8 @@ def redraw_GameWindow():
 
     if Start == True:
         startText.render_to(window, (150, 150), "Press Space To Play", (0, 0, 0))
-        y = -25                                                  # makes it so the ball isnt visible while end screen is going
-        yMovement = 0                                            # sets movement to zero
+        y = -25
+        yMovement = 0
     pygame.display.update()
 #---------------------------- Main Routine ----------------------------
 run = True
