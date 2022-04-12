@@ -31,19 +31,16 @@ def redraw_GameWindow():
     global y
     global yMovement
     window.blit(bg, (0, 0))                                      # Draws Background
-
     Circ = pygame.draw.circle(window, colour, (xRange, y), 25, 0)
 
     if End == False and Start == False:                          # If statements are when if (event) happens, the code inside it will play
                                                                  # When the game isnt at the end screen or start screen it makes it so score text doesnt display
         scoreText.render_to(window, (10,10), "Score : {}" .format(Score), (0, 0, 0))
-
     if End == True:                                              # When the game is at the end Screen it Shows Score and Asks whether to play again after losing the game
         endText.render_to(window, (100, 150), "Your Score is {}".format(Score), (0, 0, 0))
         endText.render_to(window, (10, 250), "Press Space To Play Again".format(Score), (0, 0, 0))
         y = -25                                                  # makes it so the ball isnt visible while end screen is going
         yMovement = 0                                            # sets movement to zero
-
     if Start == True:                                            # if the start screen is showing then the following code will happen
         startText.render_to(window, (150, 150), "Press Space To Play", (0, 0, 0))
         y = -25
@@ -59,7 +56,6 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
         elif ( event.type == pygame.MOUSEBUTTONDOWN ):
             mouse_position = pygame.mouse.get_pos()             # Location of the mouse click
             if ( Circ.collidepoint( mouse_position ) ):         # Was that click inside our circle
@@ -71,15 +67,12 @@ while run:
                 GreenColour = random.randint(0, 255)
                 BlueColour = random.randint(0, 255)
                 colour = (RedColour, GreenColour, BlueColour)
-
         if keys[pygame.K_SPACE]:                                # if space bar is pressed during start or end screen it will start playing a new game
-            if End == True or Start == True:
-                                                                # When end = false and when start = false is when the actual game is being played
+            if End == True or Start == True:                    # When end = false and when start = false is when the actual game is being played
                 End = False
                 Start = False
                 yMovement = random.randint(5, 15)
                 Score = 0                                       # Resets score to prepare for next game
-
     if y > 500:                                                 # Goes to End Screen and prepares for next game
         y = 0
         xRange = random.randint(50, 750)
