@@ -13,7 +13,7 @@ yMovement = random.randint(5, 15)                               # Random Downwar
 RedColour = random.randint(0, 255)
 GreenColour = random.randint(0, 255)
 BlueColour = random.randint(0, 255)
-colour = (RedColour, GreenColour , BlueColour)                  # Combines the three random values for R,G,B to make Every possible colour
+colour = (RedColour, GreenColour , BlueColour)                  # Combines the three random values for R,G,B to make every possible colour
 
 bg = pygame.image.load('bg.jpg')                                # Background
 clock = pygame.time.Clock()
@@ -89,4 +89,4 @@ while run:
         BlueColour = random.randint(0, 255)
         colour = (RedColour, GreenColour, BlueColour)
         End = True
-    redraw_GameWindow()                                         # This means that the entire "while run" code is linked to the
+    redraw_GameWindow()                                         # This means that the entire "while run" code is linked to the redraw_GameWindow
