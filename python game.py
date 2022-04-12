@@ -89,4 +89,4 @@ while run:
         BlueColour = random.randint(0, 255)
         colour = (RedColour, GreenColour, BlueColour)
         End = True
-    redraw_GameWindow()
+    redraw_GameWindow()                                         # This means that the entire "while run" code is linked to the
